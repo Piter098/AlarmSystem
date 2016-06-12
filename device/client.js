@@ -48,7 +48,7 @@ function handleState() {
 board.on("ready", function() {
     console.log("READY!");
 
-    led = new five.Led(3).on();
+    led = new five.Led(5).on();
     led2 = new five.Led(4).on();
 	
     handleState();

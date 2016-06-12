@@ -40,16 +40,25 @@ io.sockets.on('connection', function (socket) {
 	
   //set armed/disarmed button clicked (web)
   socket.on('enableToggle', function (data) {
-	if(state == 0) {
-		state = 1;
-		console.log("System armed");
+	if(data.login == 'admin' && data.pass == '12345') {
+		io.sockets.emit('loginReply',true);
+		console.log('Access granted');
+
+		if(state == 0) {
+			state = 1;
+			console.log("System armed");
+		}
+		else {
+			state = 0;
+			console.log("System disarmed");
+		}
+
+		io.sockets.emit('systemStateReply',state);
 	}
 	else {
-		state = 0;
-		console.log("System disarmed");
+		io.sockets.emit('loginReply',false);
+		console.log('Access denied');
 	}
-	
-	io.sockets.emit('systemStateReply',state);
   });
   
   

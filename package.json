@@ -1,0 +1,10 @@
+{
+    "name": "alarm-system",
+    "version": "0.0.1",
+    "dependencies": {
+        "johnny-five": "latest",
+        "etherport-client": "latest",
+        "socket.io": "latest",
+        "socket.io-client": "latest"
+    }
+}
